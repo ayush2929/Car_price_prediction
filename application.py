@@ -1,10 +1,10 @@
 import streamlit as st
-import pickle
+import joblib  # Changed from pickle
 import pandas as pd
 import numpy as np
 
 # Load model and data
-model = pickle.load(open('LinearRegressionModel.pkl', 'rb'))
+model = joblib.load('LinearRegressionModel.pkl')  # Changed from pickle.load
 car = pd.read_csv('Cleaned_Car_data.csv')
 
 # Page setup
@@ -13,7 +13,6 @@ st.set_page_config(page_title="Car Price Estimator", page_icon="🚗", layout="c
 # --- CSS Styling (background removed) ---
 st.markdown("""
     <style>
-    /* Removed background-image */
     .main-container {
         background-color: rgba(255, 255, 255, 0.95);
         padding: 2rem 3rem;
